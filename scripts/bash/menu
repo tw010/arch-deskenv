@@ -1,0 +1,5 @@
+#!/bin/bash
+
+IN=$( ls "$DESKENV/scripts/bash/" | tr " " "\n" | dmenu -p "scripts" )
+
+sh "$DESKENV/scripts/bash/$IN"

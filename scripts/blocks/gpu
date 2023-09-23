@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "$(nvidia-smi --format=csv,noheader,nounits --query-gpu=utilization.gpu)%$(nvidia-smi --format=csv,noheader,nounits --query-gpu=temperature.gpu)°"

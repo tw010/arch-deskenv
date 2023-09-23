@@ -1,0 +1,14 @@
+#!/bin/bash
+
+FILE=/sys/class/backlight/nvidia_0/brightness
+MAXFILE=/sys/class/backlight/nvidia_0/max_brightness
+
+BR=$( cat $FILE )
+MAX=$( cat $MAXFILE )
+
+read BR <<< $( dmenu -p "brightness: $BR/$MAX" & )
+
+echo $BR > $FILE
+
+notify-send "brightness" "set to $( cat $FILE )"
+pkill -RTMIN+1 dwmblocks

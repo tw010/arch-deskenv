@@ -1,0 +1,6 @@
+java -jar "$DESKENV/scripts/bggen.jar" "$DESKENV/files" &
+#python "$DESKENV/scripts/drpc.py" &
+picom &
+dunst &
+dwmblocks &
+exec dwm

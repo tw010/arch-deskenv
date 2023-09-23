@@ -1,0 +1,14 @@
+#
+# ~/.bash_profile
+#
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+neofetch
+pacman -V
+lsblk
+ls -la /
+archlogo
+
+cd ~
+startx

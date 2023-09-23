@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "$(slstatus -1 | awk '{print $2}')G"

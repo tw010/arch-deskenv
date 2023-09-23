@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "$(ps axch -o cmd,%cpu | awk '{sum+=$NF;} END {printf "%.i", sum/12;}')%"
+#echo "$(slstatus -1 | awk '{print $5;}')%"

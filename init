@@ -1,0 +1,72 @@
+#!/bin/bash
+
+cd $(dirname $0)
+
+function info(){
+	echo ""
+	echo "arch-deskenv init: $1"
+	echo ""
+}
+
+AUR="fortune-mod speedtest-cli joshuto lolcat bemoji spotify github-desktop soundux"
+PACMAN="xorg xorg-apps xorg-xinit python jre-openjdk ttf-jetbrains-mono git libreoffice-still neofetch vim dunst picom xclip firefox discord cowsay cmatrix btop gimp sl figlet mlocate bluez bluez-utils"
+
+info "working in $(pwd)"
+
+info "installing packages ($PACMAN)"
+
+sudo pacman -Syu $PACMAN
+
+info "installing aur helper"
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+
+info "installing aur packages ($AUR)"
+yay -Syu $AUR
+
+info "making programs"
+cd programs
+
+cd dwm
+sudo make clean install
+cd ../slstatus
+sudo make clean install
+cd ../dwmblocks
+sudo make clean install
+cd ../dmenu
+sudo make clean install
+cd ../st
+sudo make clean install
+cd ../slock
+sudo make clean install
+
+cd ../..
+
+info "copying config files"
+cd config
+
+function cpconfig(){
+	sudo cp $1 $2
+	echo "set config for $1"
+}
+
+cpconfig dunst /etc/dunst/dunstrc
+cpconfig grub /etc/default/grub
+cpconfig issue /etc/issue
+cpconfig picom /etc/xdg/picom.conf
+cpconfig bashrc ~/.bashrc
+cpconfig neofetch ~/.config/neofetch/config.conf
+cpconfig rclocal /etc/rc.local
+cpconfig vimrc ~/.vimrc
+
+cd ..
+
+info "copying to /bin/"
+sudo cp scripts/blocks/sblock /bin/
+
+info "done"
+
+neofetch
+bash

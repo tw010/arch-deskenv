@@ -1,0 +1,14 @@
+#!/bin/bash
+DOW=$(date +'%w')
+case $DOW in
+	"1")DOW="p";;
+	"2")DOW="a";;
+	"3")DOW="t";;
+	"4")DOW="k";;
+	"5")DOW="e";;
+	"6")DOW="š";;
+	"0")DOW="s";;
+	*)DOW="idk?";;
+esac
+echo "$DOW$(date +'%d/%m|%H:%M')"
+#:%S')"

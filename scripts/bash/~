@@ -1,0 +1,9 @@
+#!/bin/bash
+IN=$(echo "~" | dmenu -p "search")
+
+if [[ "$IN" = "~" ]];
+then
+	sh $DESKENV/scripts/bash/menu
+	exit
+fi
+firefox --search "$IN"

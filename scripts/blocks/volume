@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "$(amixer sget Master | awk -F"[][]" '/Left:/ { gsub("%",""); if($4=="on"){ if($2 <= 25) print "󰕿"; else if($2 <= 75) print "󰖀"; else if($2<=100) print "󰕾"; }else print "󰝟"; }')"

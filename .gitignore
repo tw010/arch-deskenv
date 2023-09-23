@@ -1,0 +1,13 @@
+files/bg*.png
+*.o
+*.log
+yay/
+scripts/blocks/util
+programs/dwm/dwm
+programs/dmenu/dmenu
+programs/slstatus/slstatus
+programs/st/st
+programs/dwm/dwm
+programs/slock/slock
+programs/scroll/scroll
+programs/dwmblocks/dwmblocks
