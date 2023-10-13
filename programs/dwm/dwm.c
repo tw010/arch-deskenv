@@ -1196,6 +1196,10 @@ manage(Window w, XWindowAttributes *wa)
 	arrange(c->mon);
 	XMapWindow(dpy, c->win);
 	focus(NULL);
+
+	Atom target = XInternAtom(dpy, "_IS_FLOATING", 0);
+	unsigned int floating[1] = {c->isfloating};
+	XChangeProperty(dpy, c->win, target, XA_CARDINAL, 32, PropModeReplace, (unsigned char *)floating, 1);
 }
 
 void
@@ -1875,6 +1879,10 @@ togglefloating(const Arg *arg)
 		resize(selmon->sel, selmon->sel->x, selmon->sel->y,
 			selmon->sel->w, selmon->sel->h, 0);
 	arrange(selmon);
+
+	Atom target = XInternAtom(dpy, "_IS_FLOATING", 0);
+	unsigned int floating[1] = {selmon->sel->isfloating};
+    XChangeProperty(dpy, selmon->sel->win, target, XA_CARDINAL, 32, PropModeReplace, (unsigned char *)floating, 1);
 }
 
 void
@@ -1988,8 +1996,10 @@ updatebarpos(Monitor *m)
 		m->wh -= bh;
 		m->by = m->topbar ? m->wy : m->wy + m->wh;
 		m->wy = m->topbar ? m->wy + bh : m->wy;
-	} else
-		m->by = -bh;
+	} else {
+		m->by = m->topbar ? -bh : m->mh+bh;
+		m->wh += m->topbar ? 0 : bh;
+	}
 }
 
 void

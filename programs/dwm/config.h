@@ -28,6 +28,7 @@ static const char *colors[][3]      = {
 static const char *tags[] = { ".1", "~2", "#3", "-4", "+5", "/6", "_7", "@8", "=9" };
 
 #include "shift-tools.c"
+#include "fibonacci.c"
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -51,6 +52,8 @@ static const Layout layouts[] = {
 	{ "T",        tile },    /* first entry is default */
 	{ "F",        NULL },    /* no layout function means floating behavior */
 	{ "M",        monocle },
+	{ "S",        spiral },
+	{ "D",        dwindle },
 };
 
 /* key definitions */
@@ -90,6 +93,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -120,7 +125,7 @@ static const Key keys[] = {
 static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[0]} },
 	//{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	//{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },

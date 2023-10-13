@@ -1,4 +1,4 @@
 #!/bin/bash
 ID=$( dunstify -p -i "$DESKENV/files/me.png" "status" "request sent" )
 START=$(date +%s.%3N)
-dunstify -r $ID -i "$DESKENV/files/me.png" "status" "$(curl -s -f https://!.github.io/status | tr -d "\n"), $(echo "$(date +%s.%3N) - $START" | bc | tr "." "\0")ms"
+dunstify -r $ID -i "$DESKENV/files/me.png" "status" "$(curl -s -o /dev/null https://archlinux.org && echo ok || echo err), $(echo "$(date +%s.%3N) - $START" | bc | tr "." "\0")ms"
