@@ -74,7 +74,7 @@ static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_z,      spawn,          SHCMD("$DESKENV/scripts/bash/menu") },
+	{ MODKEY,                       XK_z,      spawn,          SHCMD("$DESKENV/scripts/menu") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("$DESKENV/scripts/bash/screenshot") },
@@ -115,9 +115,9 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY,                       XK_Delete, spawn,          SHCMD("$DESKENV/scripts/bash/dconfirm 'shutdown' 'shutdown 0'") },
+	{ MODKEY,                       XK_Delete, spawn,          SHCMD("$DESKENV/scripts/dconfirm 'shutdown' 'shutdown 0'") },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("$DESKENV/scripts/bash/spotify") },	
-	{ MODKEY,                       XK_BackSpace, spawn,       SHCMD("$DESKENV/scripts/bash/dconfirm 'reboot' 'reboot'") },
+	{ MODKEY,                       XK_BackSpace, spawn,       SHCMD("$DESKENV/scripts/dconfirm 'reboot' 'reboot'") },
 };
 
 /* button definitions */

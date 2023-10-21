@@ -8,14 +8,13 @@ function info(){
 	echo ""
 }
 
-AUR="fortune-mod meson ninja speedtest-cli joshuto lolcat bemoji spotify github-desktop"
-PACMAN="xorg xorg-apps xorg-xinit python jre-openjdk ttf-jetbrains-mono git libreoffice-still neofetch vim dunst picom xclip firefox discord cowsay cmatrix btop gimp sl figlet mlocate bluez bluez-utils"
+PKGS="fortune-mod meson ninja speedtest-cli joshuto lolcat bemoji spotify github-desktop xorg xorg-apps xorg-xinit python jre-openjdk ttf-jetbrains-mono git libreoffice-still neofetch vim dunst picom xclip firefox discord cowsay cmatrix btop gimp sl figlet mlocate bluez bluez-utils"
 
 info "working in $(pwd)"
 
-info "installing packages ($PACMAN)"
+info "installing git"
 
-sudo pacman -Syu $PACMAN
+sudo pacman -Syu git
 
 info "installing aur helper"
 git clone https://aur.archlinux.org/yay.git
@@ -23,8 +22,8 @@ cd yay
 makepkg -si
 cd ..
 
-info "installing aur packages ($AUR)"
-yay -Syu $AUR
+info "installing packages ($PKGS)"
+yay -S $AUR
 
 info "making programs"
 cd programs
