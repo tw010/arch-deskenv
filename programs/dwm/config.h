@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 	[SchemeNorm0] = { col_fg, "#1F1F1F", "#1F1F1F" },
 	[SchemeNorm1] = { col_fg, "#181818", "#181818" },
 	[SchemeSel]  = { col_bg, col_ac, col_ac },
-	[SchemeSel0] = {  col_bg, "#008080", "#008080" },
+	[SchemeSel0] = { col_bg, "#008080", "#008080" },
 	[SchemeSel1] = { col_bg, "#007676", "#007676" }
 };
 
