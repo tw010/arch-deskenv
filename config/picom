@@ -1,16 +1,14 @@
 #animation
-animations = true
-animation-for-open-window = "slide-up";
-animation-for-transient-window = "slide-down";
-animation-for-unmap-window = "slide-down";
-animation-stiffness = 200.0;
-animation-window_mass = 0.0;
-animation-dampening = 2;
-animation-delta = 8;
-animation-force_steps = true;
-animation-clamping = true;
-animations-exclude = [
-];
+#animations = true
+#animation-for-open-window = "slide-up";
+#animation-for-transient-window = "slide-down";
+#animation-for-unmap-window = "slide-down";
+#animation-stiffness = 200.0;
+#animation-window_mass = 0.0;
+#animation-dampening = 2;
+#animation-delta = 8;
+#animation-force_steps = true;
+#animation-clamping = true;
 
 #################################
 #             Shadows           #

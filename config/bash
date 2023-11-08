@@ -33,13 +33,20 @@ export SUDO_PROMPT=`echo -e "[${cyan}sudo$reset] password for$cyan %p$reset #>"`
 export PS1="\[$reset\]\u\[$cyan\]@\[$reset\]\h \[$cyan\]\w\[$reset\]\[$cyan\]$\[$reset\]>"
 
 ##alias
+##sudo !!
+alias fuck='sudo $(history -p \!\!)'
+alias kurwa='sudo $(history -p \!\!)'
+alias fitta='sudo $(history -p \!\!)'
+alias perkele='sudo $(history -p \!\!)'
+alias scheiße='sudo $(history -p \!\!)'
+alias ,kznm='sudo $(history -p \!\!)'
 #mcmd
 alias mhm='echo -e "$(fortune | cowsay -n -f $(randcow))" | lolcat'
 alias slmake="sudo make clean install"
 alias minineofetch="neofetch --ascii_distro arch_small --disable locale users public_ip local_ip song font battery disk cpu_usage gpu_driver cpu gpu memory uptime resolution wm theme icons term term_font model --underline_char '\0' --color_blocks off --os_arch off --separator '\0'"
 alias pacmanclean="sudo pacman -Syu && sudo pacman -Scc && sudo pacman -Qqd | sudo pacman -Rsu - && sudo pacman -Qtdq | sudo pacman -Rns -"
 alias ytdl="youtube-dl --add-header 'Cookie:'"
-alias FeelsGoodMan="locate '' | lolcat -i -p 0.1"
+alias FeelsGoodMan="find | lolcat -i -p 0.1"
 alias svim="sudo vim"
 alias archlogo='echo -e "$(randcol)                  ▄
                  ▄█▄
