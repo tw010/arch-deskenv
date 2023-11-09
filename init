@@ -41,10 +41,10 @@ sudo make clean install
 cd ../slock
 sudo make clean install
 
-cd ..
-git clone https://github.com/pijulius/picom
-cd picom
-git submodule update --init --recursive
+#cd ..
+#git clone https://github.com/pijulius/picom
+#cd picom
+#git submodule update --init --recursive
 #meson --buildtype=release . build
 #ninja -C build install
 
