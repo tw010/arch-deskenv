@@ -8,7 +8,7 @@ function info(){
 	echo ""
 }
 
-PKGS="fortune-mod meson ninja speedtest-cli joshuto lolcat bemoji spotify github-desktop xorg xorg-apps xorg-xinit python jre-openjdk ttf-jetbrains-mono git libreoffice-still neofetch vim dunst picom xclip firefox discord cowsay cmatrix btop gimp sl figlet mlocate bluez bluez-utils"
+PKGS="fortune-mod speedtest-cli joshuto lolcat bemoji spotify github-desktop xorg xorg-apps xorg-xinit python jre-openjdk ttf-jetbrains-mono git libreoffice-still neofetch vim dunst picom xclip firefox discord cowsay cmatrix btop gimp sl figlet bluez bluez-utils"
 
 info "working in $(pwd)"
 
@@ -40,13 +40,6 @@ cd ../st
 sudo make clean install
 cd ../slock
 sudo make clean install
-
-#cd ..
-#git clone https://github.com/pijulius/picom
-#cd picom
-#git submodule update --init --recursive
-#meson --buildtype=release . build
-#ninja -C build install
 
 cd ../..
 
