@@ -1,1 +1,1 @@
-st bonsai.sh -l -b 2 -i
+st bonsai.sh -l -b 2 -i -t 0.01

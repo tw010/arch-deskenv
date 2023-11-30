@@ -1,3 +1,2 @@
 #!/bin/bash
-bemoji -P -p -c -n
-notify-send "emoji" "copied to clipboard"
+bemoji -P -p -c -n && notify-send "emoji" "copied to clipboard"

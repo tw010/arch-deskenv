@@ -1,14 +1,33 @@
 #!/bin/bash
 
-FILE=/sys/class/backlight/nvidia_0/brightness
-MAXFILE=/sys/class/backlight/nvidia_0/max_brightness
+max(){
+	[[ $1 -gt $2 ]] && echo $1 || echo $2
+}
 
-BR=$( cat $FILE )
-MAX=$( cat $MAXFILE )
+min(){
+	[[ $1 -lt $2 ]] && echo $1 || echo $2
+}
 
-read BR <<< $( dmenu -p "brightness: $BR/$MAX" & )
+getbr(){
+	echo $( xbacklight -get | cut -f1 -d'.' )
+}
 
-echo $BR > $FILE
+BR1=$(getbr)
+MAX=$( cat /sys/class/backlight/nvidia_0/max_brightness )
 
-notify-send "brightness" "set to $( cat $FILE )"
+BR=$( dmenu -p "brightness: $BR1/$MAX" & )
+
+STEPS=$(($(max $BR1 $BR) - $(min $BR1 $BR)))
+
+ID=$( dunstify -p "brightness" "$(getbr)" )
+
+xbacklight -set $BR -time $(($STEPS*10)) -steps $STEPS &
+
+PID=$!
+while kill -0 $PID 2> /dev/null; do
+	dunstify -r $ID "brightness" "$(getbr)"
+done
+
+wait
+dunstify -r $ID "brightness" "set to $(getbr)"
 pkill -RTMIN+1 dwmblocks

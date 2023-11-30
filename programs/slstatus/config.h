@@ -71,7 +71,7 @@ static const struct arg args[] = {
 	{ swap_perc, "%s ", NULL },
 	{ run_command, "xdxdxd ", "" },
 	//{ cpu_perc, "%s ", NULL },
-	{ wifi_icon, "%s ", "wlp4s0" },
+	{ wifi_icon, "%s ", "wlan0" },
 	{ battery_state, "%s ", "BAT0" },
 	{ battery_perc, "%s ", "BAT0" }
 };

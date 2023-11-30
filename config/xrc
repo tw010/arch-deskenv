@@ -1,6 +1,9 @@
+#!/bin/bash
+
 java -jar "$DESKENV/scripts/bggen.jar" "$DESKENV/files" &
 #python "$DESKENV/scripts/drpc.py" &
 picom &
 dunst &
 dwmblocks &
+xbacklight -set 85 -time 0 -steps 1
 exec dwm

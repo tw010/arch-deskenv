@@ -36,8 +36,6 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	//{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	//{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "widget", NULL, NULL, 0, 1, -1 },
 };
 
@@ -71,15 +69,17 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_bg, "-nf", col_fg, "-sb", col_ac, "-sf", col_bg, topbar ? NULL : "-b", NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *slockcmd[] = { "slock", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_z,      spawn,          SHCMD("$DESKENV/scripts/menu") },
+	{ MODKEY,                       XK_x,      spawn,          SHCMD("$DESKENV/scripts/bash/spotify") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("$DESKENV/scripts/bash/screenshot") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("amixer set Master toggle && pkill -RTMIN+2 dwmblocks") },
-	{ MODKEY,                       XK_c,      spawn,          SHCMD("slock") },
+	{ MODKEY,                       XK_c,      spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -115,9 +115,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY,                       XK_Delete, spawn,          SHCMD("$DESKENV/scripts/dconfirm 'shutdown' 'shutdown 0'") },
-	{ MODKEY,                       XK_x,      spawn,          SHCMD("$DESKENV/scripts/bash/spotify") },	
-	{ MODKEY,                       XK_BackSpace, spawn,       SHCMD("$DESKENV/scripts/dconfirm 'reboot' 'reboot'") },
+	{ MODKEY,                       XK_Delete, spawn,          SHCMD("$DESKENV/scripts/dconfirm 'poweroff' 'systemctl poweroff'") },
+	{ MODKEY,                       XK_BackSpace, spawn,       SHCMD("$DESKENV/scripts/dconfirm 'reboot' 'systemctl reboot'") },
 };
 
 /* button definitions */

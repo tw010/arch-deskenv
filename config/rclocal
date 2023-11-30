@@ -1,9 +1,0 @@
-#!/bin/bash
-
-#backlight
-BL=/sys/class/backlight/nvidia_0/brightness
-while [ ! -f $BL ]; do sleep 1; done
-chmod 666 $BL
-echo 85 > $BL
-
-exit 0

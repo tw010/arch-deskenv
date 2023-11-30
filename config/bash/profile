@@ -11,4 +11,4 @@ ls -la /
 archlogo
 
 cd ~
-startx
+echo -e "\n$cyan press enter to startx\n$reset or ctrl+c" && read && startx

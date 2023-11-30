@@ -11,4 +11,4 @@ STARTDIR=$(pwd)
 cd ~
 export DESKENV="$(pwd)/arch-deskenv"
 cd $STARTDIR
-source "$DESKENV/config/bash"
+source "$DESKENV/config/bash/bash"
