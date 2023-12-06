@@ -1,5 +1,5 @@
 #!/bin/bash
-IN=$(echo "~" | dmenu -p " search")
+IN=$(echo "~" | dmenu -p "?")
 
 if [[ "$IN" = "~" ]];
 then

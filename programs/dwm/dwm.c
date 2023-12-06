@@ -1992,13 +1992,14 @@ updatebarpos(Monitor *m)
 {
 	m->wy = m->my;
 	m->wh = m->mh;
+	//TODO this is so ugly
 	if (m->showbar) {
 		m->wh -= bh;
 		m->by = m->topbar ? m->wy : m->wy + m->wh;
 		m->wy = m->topbar ? m->wy + bh : m->wy;
 	} else {
 		m->by = m->topbar ? -bh : m->mh+bh;
-		m->wh += m->topbar ? 0 : bh;
+		//m->wh += m->topbar ? 0 : bh;
 	}
 }
 
