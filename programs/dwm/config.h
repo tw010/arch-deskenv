@@ -11,17 +11,19 @@ static const int adjwindows         = 1;        /* draw titles of next & prev cl
 static const int warpres            = 0;        /* warp cursor to edge of window when resizing */
 static const char *fonts[]          = { "JetBrainsMono-Regular:size=8", "SymbolsNerdFontMono-Regular:size=6" };
 static const char dmenufont[]       = "JetBrainsMono-Regular:size=8";
-static const char col_bg[]          = "#202020";
-static const char col_fg[]          = "#FFFFFF";
-static const char col_ac[]          = "#008888";
+
+static const char col_bg[] = "#202020";
+static const char col_fg[] = "#FFFFFF";
+static const char col_ac[] = "#40E0D0";
+
 static const char *colors[][3]      = {
 	/*               fg      bg      border   */
 	[SchemeNorm] = { col_fg, col_bg, col_bg },
-	[SchemeNorm0] = { col_fg, "#1F1F1F", "#1F1F1F" },
-	[SchemeNorm1] = { col_fg, "#181818", "#181818" },
+	[SchemeNorm0] = { col_fg, "#181818", "#181818" },
+	[SchemeNorm1] = { col_fg, "#222222", "#222222" },
 	[SchemeSel]  = { col_bg, col_ac, col_ac },
-	[SchemeSel0] = { col_bg, "#008080", "#008080" },
-	[SchemeSel1] = { col_bg, "#007676", "#007676" }
+	[SchemeSel0] = { col_bg, "#1EBAAA", "#1EBAAA" },
+	[SchemeSel1] = { col_bg, "#70E8DC", "#70E8DC" }
 };
 
 /* tagging */

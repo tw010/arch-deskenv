@@ -86,15 +86,19 @@ static const unsigned int alphas[][3]      = {
 };
 #endif // ALPHA_PATCH
 
+static const char col_bg[] = "#202020";
+static const char col_fg[] = "#FFFFFF";
+static const char col_ac[] = "#40E0D0";
+
 static
 #if !XRESOURCES_PATCH
 const
 #endif // XRESOURCES_PATCH
 char *colors[][2] = {
 	/*               fg         bg       */
-	[SchemeNorm] = { "#FFFFFF", "#202020" },
-	[SchemeSel]  = { "#202020", "#008888" },
-	[SchemeOut]  = { "#000000", "#FFFFFF" },
+	[SchemeNorm] = { col_fg, col_bg },
+	[SchemeSel]  = { col_bg, col_ac },
+	[SchemeOut]  = { col_bg, col_fg },
 	#if BORDER_PATCH
 	[SchemeBorder] = { "#000000", "#005577" },
 	#endif // BORDER_PATCH
