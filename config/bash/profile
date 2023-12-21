@@ -8,7 +8,5 @@ neofetch
 pacman -V
 lsblk
 ls -la /
-archlogo
 
-cd ~
-echo -e "\n$cyan press enter to startx\n$reset or ctrl+c" && read && startx
+echo -e "\n$cyan press enter to startx\n$reset or ctrl+c" && read && cd ~ && startx
