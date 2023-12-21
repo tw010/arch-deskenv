@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
+#define ICONSIZE 16   /* icon size */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 4;
 static const unsigned int snap      = 8;       /* snap pixel */
@@ -27,7 +28,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { ".1", "~2", "#3", "+4", "-5", "=6", "/7", "%8", "@9" };
 
 #include "shift-tools.c"
 #include "fibonacci.c"
