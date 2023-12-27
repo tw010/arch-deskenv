@@ -12,7 +12,7 @@ static const Block blocks[] = {
 	{" {", "", 0, 0},
 	{"CPU:", "sblock cpu", 1, 0},
 	{" ", "", 0, 0},
-	{"GPU:", "sblock gpu", 2, 10},
+	{"GPU:", "sblock gpu", 2, 0},
 	{"}", "", 0, 0},
 	{" [", "", 0, 0},
 	{"", "sblock date", 1, 0},
@@ -26,6 +26,8 @@ static const Block blocks[] = {
 	{"", "sblock bluetooth", 2, 0},
 	{" ", "", 0, 0},
 	{"", "sblock monitor", 60, 1},
+	{" ", "", 0, 0},
+	{"", "sblock keyboard", 0, 3},
 	{" ", "", 0, 0},
 	{" \\", "sblock info", 600, 0},
 };

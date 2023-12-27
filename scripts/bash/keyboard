@@ -1,5 +1,0 @@
-#!/bin/bash
-
-IN=$( echo -e "ru\nen" | dmenu -p "keyboard" )
-
-localectl set-??? $IN

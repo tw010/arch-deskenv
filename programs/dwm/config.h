@@ -39,6 +39,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
+	{ NULL, NULL, "mess", 0, 1, -1 },
 	{ "widget", NULL, NULL, 0, 1, -1 },
 };
 
@@ -117,7 +118,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
 	{ MODKEY,                       XK_Delete, spawn,          SHCMD("$DESKENV/scripts/dconfirm 'poweroff' 'systemctl poweroff'") },
 	{ MODKEY,                       XK_BackSpace, spawn,       SHCMD("$DESKENV/scripts/dconfirm 'reboot' 'systemctl reboot'") },
 };
