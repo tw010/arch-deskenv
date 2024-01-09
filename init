@@ -8,8 +8,8 @@ function info(){
 	echo ""
 }
 
-PMPKGS="obs-studio htop code networkmanager yt-dlp vlc qbittorrent bc bash-completion flameshot qt6-tools alsa-utils libreoffice-still speedtest-cli npm nodejs fortune-mod cowsay btop figlet cmatrix bluez bluez-utils gimp lolcat sl telegram-desktop feh noto-fonts-cjk noto-fonts-emoji ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono libxinerama libxft nvidia nvidia-utils nvidia-settings lib32-nvidia-utils xorg xorg-apps xorg-server xorg-xinit xclip firefox neofetch vim dunst picom discord python jre-openjdk steam"
-URPKGS="bonsai.sh-git minecraft-launcher joshuto bemoji spotify cdm github-desktop-bin"
+PMPKGS="obs-studio htop code networkmanager vlc qbittorrent bc bash-completion flameshot qt6-tools alsa-utils libreoffice-still npm nodejs fortune-mod cowsay btop figlet cmatrix bluez bluez-utils gimp lolcat sl telegram-desktop feh noto-fonts-cjk noto-fonts-emoji ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono libxinerama libxft nvidia nvidia-utils nvidia-settings lib32-nvidia-utils xorg xorg-apps xorg-server xorg-xinit xclip firefox neofetch vim dunst picom discord python jre-openjdk steam"
+URPKGS="bonsai.sh-git joshuto bemoji spotify github-desktop-bin"
 
 info "working in $(pwd)"
 

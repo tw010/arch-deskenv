@@ -1,7 +1,8 @@
 void
-fibonacci(Monitor *mon, int s) {
+fibonacci(Monitor *mon) {
 	unsigned int i, n, nx, ny, nw, nh;
 	Client *c;
+	int s = 0;
 
 	for(n = 0, c = nexttiled(mon->clients); c; c = nexttiled(c->next), n++);
 	if(n == 0)
@@ -56,11 +57,6 @@ fibonacci(Monitor *mon, int s) {
 }
 
 void
-dwindle(Monitor *mon) {
-	fibonacci(mon, 1);
-}
-
-void
 spiral(Monitor *mon) {
-	fibonacci(mon, 0);
+	fibonacci(mon);
 }

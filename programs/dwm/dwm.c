@@ -215,6 +215,7 @@ static void tagmon(const Arg *arg);
 static void tile(Monitor *m);
 static void togglebar(const Arg *arg);
 static void togglefloating(const Arg *arg);
+static void togglefullscr(const Arg *arg);
 static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
 static void freeicon(Client *c);
@@ -730,7 +731,6 @@ void
 drawbar(Monitor *m)
 {
 	int x, w, tw = 0;
-	int boxw = drw->fonts->h / 6 + 2;
 	unsigned int i, occ = 0, urg = 0;
 	Client *c;
 
@@ -859,7 +859,7 @@ drawbar(Monitor *m)
 				drw_pic(drw, x + lrpad / 2 - m->sel->icw/2, (bh - m->sel->ich) / 2, m->sel->icw, m->sel->ich, m->sel->icon);
 
 			if (m->sel->isfloating)
-				drw_rect(drw, x + tw - boxw * 1.5, bh/2-boxw/2, boxw, boxw, m->sel->isfixed, 0);
+				drw_rect(drw, x + tw/2 - nullw/2+1, bh-2, nullw-2, 3, m->sel->isfixed, 0);
 		}
 	}
 
@@ -1960,6 +1960,13 @@ togglefloating(const Arg *arg)
 	Atom target = XInternAtom(dpy, "_IS_FLOATING", 0);
 	unsigned int floating[1] = {selmon->sel->isfloating};
     XChangeProperty(dpy, selmon->sel->win, target, XA_CARDINAL, 32, PropModeReplace, (unsigned char *)floating, 1);
+}
+
+void
+togglefullscr(const Arg *arg)
+{
+  if(selmon->sel)
+    setfullscreen(selmon->sel, !selmon->sel->isfullscreen);
 }
 
 void
