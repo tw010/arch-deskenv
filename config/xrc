@@ -1,7 +1,7 @@
 #!/bin/bash
-
-java -jar "$DESKENV/scripts/bggen.jar" "$DESKENV/files" &
-#python "$DESKENV/scripts/drpc.py" &
+xset m 1/1 1
+java -jar "$DESKENV/scripts/bggen.jar" "$DESKENV/files" & #todo
+cd $DESKENV/scripts && ./drpc &
 picom &
 dunst &
 dwmblocks &

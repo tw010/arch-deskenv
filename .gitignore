@@ -1,3 +1,4 @@
+.venv/
 files/bg*.png
 *.o
 *.log
