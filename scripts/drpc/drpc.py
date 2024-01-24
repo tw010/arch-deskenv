@@ -8,10 +8,9 @@ host = subprocess.run("uname -n", shell=True, capture_output=True, check=True)
 user = user.stdout.decode('utf-8').replace("\n", "")
 host = host.stdout.decode('utf-8')
 
-rpc = Presence("1133070138602700810")
-
 while True:
 	try:
+		rpc = Presence("1133070138602700810")
 		rpc.connect()
 		while True:
 			uptime = subprocess.run("uptime -p", shell=True, capture_output=True, check=True)

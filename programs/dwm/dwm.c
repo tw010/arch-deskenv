@@ -827,8 +827,8 @@ drawbar(Monitor *m)
 
 		if (m->sel) {
 			int tw = MIN(TEXTW(m->sel->name)+(m->sel->icon ? m->sel->icw : 0), w);
-			int fleft = m->ww/2+tw/2 <= x+w;
-			int fright = m->ww/2-tw/2 >= x;
+			int fleft = m->ww/2+tw/2 < x+w;//todo sum weird specific width breaks this
+			int fright = m->ww/2-tw/2 > x;
 
 			if(fright){
 				x = x+w-tw;

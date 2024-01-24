@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "$(ps axch -o cmd,%cpu | awk '{sum+=$NF;} END {printf "%i", sum/12;}')%"
+echo "$(ps axch -o cmd,%cpu | awk '{sum+=$NF;} END {printf "%i", sum/12;}')%$(sensors | grep Tctl: | awk '{print int($2);}')°"
 #echo "$(slstatus -1 | awk '{print $5;}')%"

@@ -69,7 +69,7 @@ static const struct arg args[] = {
 	{ disk_free, "%s ", "/" },
 	{ ram_perc, "%s ", NULL },
 	{ swap_perc, "%s ", NULL },
-	{ run_command, "xdxdxd ", "" },
+	//{ run_command, "xdxdxd ", "" },
 	//{ cpu_perc, "%s ", NULL },
 	{ wifi_icon, "%s ", "wlan0" },
 	{ battery_state, "%s ", "BAT0" },
