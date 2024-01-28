@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(slstatus -1 | awk '{print $6;}')"
+echo "$(slstatus -1 | awk '{print $5;}')"

@@ -1,3 +1,5 @@
+from tendo import singleton
+x = singleton.SingleInstance()
 from pypresence import Presence
 import time
 import subprocess

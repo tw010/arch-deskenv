@@ -827,7 +827,7 @@ drawbar(Monitor *m)
 
 		if (m->sel) {
 			int tw = MIN(TEXTW(m->sel->name)+(m->sel->icon ? m->sel->icw : 0), w);
-			int fleft = m->ww/2+tw/2 < x+w;//todo sum weird specific width breaks this
+			int fleft = m->ww/2+tw/2 < x+w;
 			int fright = m->ww/2-tw/2 > x;
 
 			if(fright){
@@ -840,7 +840,7 @@ drawbar(Monitor *m)
 				drw_setscheme(drw, scheme[SchemeNorm]);
 
 				int twr = MIN(TEXTW(prev->name),x-orx);
-				if(fright)
+				if(fright&&twr>2*nullw)
 					drw_text(drw, x-twr, 0, twr-nullw/2, bh, lrpad/2, prev->name, 0);
 				int twl = MIN(TEXTW(next->name),orx+w-x-tw);
 				if(fleft)

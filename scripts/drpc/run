@@ -2,5 +2,6 @@
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
+python -m pip install tendo
 python -m pip install pypresence
-python drpc.py
+python drpc.py > /dev/null

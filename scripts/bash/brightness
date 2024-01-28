@@ -18,6 +18,7 @@ MAX=$( cat /sys/class/backlight/nvidia_0/max_brightness )
 BR=$( dmenu -p "brightness: $BR1/$MAX" & )
 
 STEPS=$(($(max $BR1 $BR) - $(min $BR1 $BR)))
+STEPS=$(min $(max $STEPS 0) 100)
 
 ID=$( dunstify -p "brightness" "$(getbr)" )
 
