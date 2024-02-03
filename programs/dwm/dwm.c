@@ -828,7 +828,7 @@ drawbar(Monitor *m)
 		if (m->sel) {
 			int tw = MIN(TEXTW(m->sel->name)+(m->sel->icon ? m->sel->icw : 0), w);
 			int fleft = m->ww/2+tw/2 < x+w;
-			int fright = m->ww/2-tw/2 > x;
+			int fright /* damn */ = m->ww/2-tw/2 > x;
 
 			if(fright){
 				x = x+w-tw;
@@ -840,10 +840,10 @@ drawbar(Monitor *m)
 				drw_setscheme(drw, scheme[SchemeNorm]);
 
 				int twr = MIN(TEXTW(prev->name),x-orx);
-				if(fright&&twr>2*nullw)
-					drw_text(drw, x-twr, 0, twr-nullw/2, bh, lrpad/2, prev->name, 0);
+				if(fright)
+					drw_text(drw, x-twr-nullw/2, 0, twr, bh, lrpad/2, prev->name, 0);
 				int twl = MIN(TEXTW(next->name),orx+w-x-tw);
-				if(fleft)
+				if(fleft&&twl>nullw)
 					drw_text(drw, x+tw, 0, twl, bh, lrpad/2, next->name, 0);
 			}
 			drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
