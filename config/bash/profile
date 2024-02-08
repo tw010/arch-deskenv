@@ -9,4 +9,16 @@ pacman -V
 lsblk
 ls -la /
 
-echo -e "\n$cyan press enter to startx\n$reset or ctrl+c" && read && cd ~ && startx
+cd ~
+
+LOOP="true"
+while [[ $LOOP = "true" ]]; do
+	echo -e "\n$cyan x to startx\n$yellow y to update\n$grey c to cancel\n$reset"
+	read -s -n1 opt
+	case $opt in
+		"y") yay || sudo pacman -Syu ;;
+		"x") LOOP="false"; startx ;;
+		"c") LOOP="false" ;;
+		*) ;;
+	esac
+done
