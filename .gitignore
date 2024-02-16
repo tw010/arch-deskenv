@@ -1,4 +1,5 @@
 .venv/
+files/secrets/
 files/bg*.png
 *.o
 *.log
@@ -10,7 +11,5 @@ programs/slstatus/slstatus
 programs/st/st
 programs/dwm/dwm
 programs/slock/slock
-programs/scroll/scroll
 programs/dwmblocks/dwmblocks
-patch
 picom/

@@ -1,0 +1,31 @@
+#!/bin/bash
+WEBHOOK_URL="$(cat $DESKENV/files/secrets/discord-webhook)"
+
+TS="$(date +%s)"
+OH="false"
+i=0
+
+while true; do
+	i=$((i+1))
+	T=$(sensors | grep Tctl: | awk '{print $2;}')
+	ST=$(echo $T | awk '{print int($1);}')
+	if [[ $ST -gt 84 ]]; then
+		if [[ $OH = "false" ]]; then
+			TS="$(date +%s)"
+		fi
+		OH="true"
+		i=0
+		echo -e "\033[1;31mCPU OVERHEATING AT $T\033[m"
+		curl -s -H "Content-Type: application/json" -d "{\"username\": \"CPU\", \"content\": \"<@&1122519359416442933> - OVERHEATING AT $T\"}" $WEBHOOK_URL
+	else
+		if [[ $OH = "true" ]]; then
+			OH="false"
+			curl -s -H "Content-Type: application/json" -d "{\"username\": \"CPU\", \"content\": \"cooled down after approx. $(($(date +%s) - $TS)) seconds\"}" $WEBHOOK_URL
+		fi
+		if [[ $i -gt 30 ]]; then
+			curl -s -H "Content-Type: application/json" -d "{\"username\": \"CPU\", \"content\": \"annual temperature log $T\"}" $WEBHOOK_URL
+			i=0
+		fi
+	fi
+	sleep 2
+done
