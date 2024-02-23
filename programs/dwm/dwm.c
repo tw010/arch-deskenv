@@ -750,15 +750,15 @@ drawbar(Monitor *m)
 		char *toks = strtok(NULL, "\\");
 		int toksw = TEXTW(toks);
 
-		tw = (toknw + tokiw + toksw-nullw*2) - lrpad + 2; /* 2px right padding */
+		tw = (toknw + tokiw + toksw-nullw*(roundstat ? 1.5 : 2)) - lrpad + 2; /* 2px right padding */
 		drw_setscheme(drw, scheme[SchemeNorm]);
 		drw_text(drw, m->ww - tw, 0, toknw, bh, 0, tokn, 0);
 		drw_setscheme(drw, scheme[SchemeSel]);
 		drw_text(drw, m->ww - tw + toknw-nullw, 0, tokiw, bh, 0, toki, 1);
 		if(toksw>nullw) {
 			if(roundstat)
-				drw_arc(drw, m->ww-tw + tokiw + toknw-nullw*2.5-1, -1, bh, bh+1, 1, 1, 64*90, 64*180);
-			drw_text(drw, m->ww - tw + tokiw + toknw-nullw*2, 0, toksw, bh, 0, toks, 0);
+				drw_arc(drw, m->ww-tw + tokiw + toknw - nullw*2-1, -1, bh, bh+1, 1, 1, 64*90, 64*180);
+			drw_text(drw, m->ww - tw + tokiw + toknw-nullw*(roundstat ? 1.5 : 2), 0, toksw, bh, 0, toks, 0);
 		}
 	}
 	
@@ -823,7 +823,7 @@ drawbar(Monitor *m)
 	if ((w = m->ww - tw - x) > bh) {
 		drw_setscheme(drw, scheme[SchemeNorm]);
 		drw_rect(drw, x, 0, w, bh, 1, 1);
-		w-=nullw/2;
+		if(roundwin) w-=nullw/2;
 
 		if (m->sel) {
 			int tw = MIN(TEXTW(m->sel->name)+(m->sel->icon ? m->sel->icw : 0), w);
@@ -841,7 +841,7 @@ drawbar(Monitor *m)
 
 				int twr = MIN(TEXTW(prev->name),x-orx);
 				if(fright)
-					drw_text(drw, x-twr-nullw/2, 0, twr, bh, lrpad/2, prev->name, 0);
+					drw_text(drw, x-twr-(twr==x-orx?nullw/2:0), 0, twr, bh, lrpad/2, prev->name, 0);
 				int twl = MIN(TEXTW(next->name),orx+w-x-tw);
 				if(fleft&&twl>nullw)
 					drw_text(drw, x+tw, 0, twl, bh, lrpad/2, next->name, 0);
