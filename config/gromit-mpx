@@ -6,8 +6,8 @@
 HOTKEY = "F9";
 UNDOKEY = "F8";
 
-"pen0" = PEN (size=5 color="rgba(128, 0, 128, 0.75)");
-"pen1" = "pen0" (color="rgba(255, 128, 0, 0.75)");
+"pen0" = PEN (size=5 color="rgba(0, 0, 0, 0.9)");
+"pen1" = "pen0" (color="rgba(255, 255, 255, 0.9)");
 "eraser" = ERASER (size = 75);
 									
 "default" = "pen0";
