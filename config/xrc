@@ -1,6 +1,6 @@
 #!/bin/bash
 xset m 1/1 1
-java -jar "$DESKENV/scripts/bggen.jar" "$DESKENV/files" & #todo
+java -jar "$DESKENV/scripts/bggen.jar" "$DESKENV/files" &
 cd $DESKENV/scripts/drpc && ./run &
 picom &
 dunst &
